@@ -6,7 +6,7 @@ spec:
   runtimeClassName: edera
   containers:
   - name: memramp-edera
-    image: denhamparry/memramp:latest
+    image: denhamparry/memramp:0.1.0
     env:
     - name: TESTING_MB
       value: "5"
